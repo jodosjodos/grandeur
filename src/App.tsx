@@ -1,9 +1,18 @@
+import { useState } from 'react'
 import Loading from './pages/Loading'
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from './pages/Home'
 function App() {
+	const [loading, setLoading] = useState(false)
 	return (
 		<div className='w-screen h-screen bg-red-500'>
-		<Loading />
+			{loading ? <Loading /> : (
+				<Router>
+					<Routes>
+						<Route path='/' element={<Home />} />
+					</Routes>
+				</Router>
+			)}
 		</div>
 	)
 }
