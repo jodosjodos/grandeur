@@ -2,8 +2,11 @@ import { useState } from 'react'
 import Loading from './pages/Loading'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
+import CursorCircle from './components/CursorCircle'
 function App() {
 	const [loading, setLoading] = useState(false)
+	// not used 
+	setLoading
 	return (
 		<div className='w-screen h-screen bg-red-500'>
 			{loading ? <Loading /> : (
@@ -13,6 +16,7 @@ function App() {
 					</Routes>
 				</Router>
 			)}
+			<CursorCircle />
 		</div>
 	)
 }
