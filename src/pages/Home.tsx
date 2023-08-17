@@ -5,6 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import useMousePosition from "../hooks/useMousePosition";
 import MyDiv from "../components/MyDiv";
 import Grandeur from "../components/Grandeur";
+import Aboutme from "../components/Aboutme";
+import Experience from "../components/Experience";
+import Clients from "../components/Clients";
+import Motto from "../components/Motto";
 const Home = () => {
 	// const [isHovered, setIsHovered] = useState(false);
 	// const { x, y } = useMousePosition();
@@ -80,22 +84,8 @@ const Home = () => {
 					<p className="font-semibold opacity-25  hover:opacity-100">sound</p>
 				</div>
 			</div>
-			{/* <MyDiv /> */}
 			<Grandeur />
-			<div className="w-full px-48  py-32 text-[#b7ab98]  custom-animation">
-				<p className="uppercase">About me</p>
-				<div className="text-6xl my-5 font-bold">
-					<p>
-						Celebrated{" "}
-						<span className="text-[rgb(235,89,57)]">
-							watchmaker since <br /> 2015
-						</span>
-						. Passionate about <br /> precision, craftsamanship, and <br />{" "}
-						timeless design. Consistently <br /> providing meticulous, <br />{" "}
-						high-quality service
-					</p>
-				</div>
-			</div>
+			<Aboutme />
 			<div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default custom-animation">
 				<p className="uppercase px-48 text-xl">what i do</p>
 				<div className="text-4xl my-3 uppercase">
@@ -166,19 +156,9 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div className="w-full px-48  pt-32 pb-40 text-[#b7ab98] bg-[url('/images/work-1600.jpg')] bg-no-repeat bg-cover relative custom-animation">
-				<p className="uppercase">Experience</p>
-				<div className="text-7xl font-bold my-3">
-					<p className="fade-on-scroll">
-						Over <span className="text-[rgb(235,89,57)]">a decade</span> of
-						<br />
-						watchmaking experience in a <br /> variety of watch styles , <br />{" "}
-						including luxury, sport, and <br /> vintage designs, while working{" "}
-						<br /> with the majority of the market's <br /> major players to
-						create <br /> exquisite timepieces.
-					</p>
-				</div>
-				<p className="absolute  uppercase bottom-10">History</p>
+			<div className="w-full   pt-32 pb-40 text-[#b7ab98] bg-[url('/images/work-1600.jpg')] bg-no-repeat bg-cover relative custom-animation">
+				<Experience />
+				<p className="absolute  uppercase bottom-10 px-48">History</p>
 			</div>
 			<div className="custom-animation">
 				<div className=" text-[#c9c1b5] flex flex-row gap-40 font-medium px-48 py-12 border-b border-[#b7ab98] border-opacity-20">
@@ -209,43 +189,6 @@ const Home = () => {
 						<p className=" font-extralight">DR Com Group</p>
 					</div>
 				</div>
-				<div className="">
-					<div className="text-[#c9c1b5] px-48 py-40 flex flex-col gap-5">
-						<p className="uppercase font-medium">clients</p>
-						<div className="text-[#c9c1b5] text-6xl flex flex-col gap-2 font-bold">
-							<p>I worked with some of the most</p>
-							<p>
-								<span className="text-[rgb(235,89,57)]">innovative</span>
-								industry leaders to help
-							</p>
-							<p>build their top-notch products</p>
-						</div>
-					</div>
-					<div className=" uppercase text-[#c9c1b5]  bg-[url('/images/planet-1-1.png')]  bg-no-repeat bg-contain  bg-bottom  mb-28">
-						<div className="   ">
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
-								ford
-							</p>
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
-								ufc
-							</p>
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
-								{" "}
-								lincoln
-							</p>
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
-								royal caribbean
-							</p>
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
-								sleeping
-							</p>
-							<p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48 ">
-								nfl
-							</p>
-						</div>
-						<p className="text-9xl px-48">...</p>
-					</div>
-				</div>
 				<div>
 					<img
 						loading="lazy"
@@ -254,6 +197,7 @@ const Home = () => {
 					/>
 				</div>
 			</div>
+			<Clients />
 			<div className="mx-44 text-color custom-animation">
 				<div className="flex flex-col py-28">
 					<div className="border-b py-5 border-color border-opacity-20 mb-20">
@@ -261,7 +205,7 @@ const Home = () => {
 							WHAT THEY SAID
 						</h1>
 					</div>
-					<div className="sticky top-0 right-0">
+					<div className="sticky top-[50%] right-0">
 						<div className="flex flex-row gap-3 items-center w-24">
 							<p className="text-[#eb5939] font-bold  text-4xl">&lt;</p>
 							<img src="/images/michael-glass.jpg" alt=" michael profile" />
@@ -279,7 +223,7 @@ const Home = () => {
 					</div>
 					<div className="border-b border-color py-28 border-opacity-20">
 						<div className="flex flex-col gap-16">
-							<div className="text-[5rem] font-bold fade-on-scroll">
+							<div className="text-7xl font-bold fade-on-scroll">
 								<p className="text-color ">
 									{" "}
 									<span className=" text-[#eb5939]">"</span> Grandeur is
@@ -299,7 +243,7 @@ const Home = () => {
 					</div>
 					<div className="border-b border-color py-28 border-opacity-20 ">
 						<div className="flex flex-col gap-16">
-							<div className="text-[5rem] font-medium fade-on-scroll">
+							<div className="text-7xl font-medium fade-on-scroll">
 								<p className="text-color ">
 									<span className="text-[#eb5939]">"</span> This looks{" "}
 								</p>
@@ -317,7 +261,7 @@ const Home = () => {
 					</div>
 					<div className=" py-28 border-opacity-20">
 						<div className="flex flex-col gap-16">
-							<div className=" text-[5rem] font-medium">
+							<div className=" text-7xl font-medium">
 								<p className="text-color ">
 									<span className=" text-[#eb5939]">"</span> He's a beast.
 								</p>
@@ -336,13 +280,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="bg-[url('/images/banner-bottom-50.jpg')] flex flex-col items-center justify-center py-56  bg-cover text-color custom-animation">
-				<p className="uppercase">my motto</p>
-				<div className="flex flex-col justify-center items-center text-9xl font-bold">
-					<p>GOOD DESIGN</p>
-					<p>IS HONEST</p>
-				</div>
-
-				<p>Dieter Rams</p>
+				<Motto />
 			</div>
 			<div className="px-48 text-color flex flex-col gap-16 pt-40 pb-10">
 				<p>CONNECT</p>
