@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
 function App() {
 	const [loading, setLoading] = useState(false)
-	// not used 
 	setLoading
 	return (
-		<div className='w-screen h-screen bg-red-500'>
+		<div className='w-screen h-screen bg-red-500  	'>
 			{loading ? <Loading /> : (
 				<Router>
 					<Routes>
@@ -15,6 +14,7 @@ function App() {
 					</Routes>
 				</Router>
 			)}
+			{/* <CursorCircle /> */}
 		</div>
 	)
 }

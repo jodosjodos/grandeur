@@ -1,12 +1,18 @@
-import { useState } from "react";
+import {  useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-        const [isOn,setOn]=useState(true)
-        const handleSound=()=>{
-                setOn(prev=>!prev)
-        }
+
+
+  const [isOn, setOn] = useState(true);
+  const handleSound = () => {
+    setOn((prev) => !prev);
+  };
   return (
-    <div className="w-full  bg-[rgb(13,13,13)] ">
+    <div className="w-[100vw] overflow-x-hidden  bg-[rgb(13,13,13)] ">
       <img
         src="/icons/logo.svg"
         alt=""
@@ -25,18 +31,20 @@ const Home = () => {
       </div>
       <div className="fixed bottom-20 right-10 flex flex-col gap-5  z-30">
         <div className="transform rotate-90  uppercase text-[#b7ab98] flex  gap-2 hover:cursor-pointer">
-          <p className="font-semibold" onClick={handleSound}>{isOn?"On":"Off"}</p>
+          <p className="font-semibold" onClick={handleSound}>
+            {isOn ? "On" : "Off"}
+          </p>
           <p className="font-semibold opacity-25  hover:opacity-100">sound</p>
         </div>
       </div>
       <div className="w-full text-center py-24 text-[#b7ab98] uppercase">
         <p>Grandeur</p>
-        <div className="text-9xl font-bold">
+        <div className="text-9xl custom-animation">
           <p>
             CRAFTING <br />
             TIME
           </p>
-          <p className="text-[rgb(235,89,57)]">
+          <p className="custom-color">
             CREATING <br /> LEGACY
           </p>
           <p>
@@ -49,48 +57,95 @@ const Home = () => {
         <div className="text-6xl my-5 font-bold">
           <p>
             Celebrated{" "}
-            <span className="text-[rgb(235,89,57)]">watchmaker since <br /> 2015</span>
-            . Passionate about <br />  precision, craftsamanship, and <br /> timeless design.
-            Consistently <br /> providing meticulous, <br /> high-quality service
+            <span className="text-[rgb(235,89,57)]">
+              watchmaker since <br /> 2015
+            </span>
+            . Passionate about <br /> precision, craftsamanship, and <br />{" "}
+            timeless design. Consistently <br /> providing meticulous, <br />{" "}
+            high-quality service
           </p>
         </div>
       </div>
       <div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default">
         <p className="uppercase px-48 text-xl">what i do</p>
         <div className="text-4xl my-3 uppercase">
-          <p className="w-full border-y border-[#b7ab98] border-opacity-20 px-24 font-medium flex flex-col  py-2 text-5xl">Design</p>
-          <p className="w-full border-b border-[#b7ab98] font-medium text-5xl py- px-24 py-2 border-opacity-20 ">
-            Component Production
-          </p>
-          <p className="w-full  border-[#b7ab98] px-24 font-medium text-5xl py-2 border-opacity-20">
-            Movement Assembly
-          </p>
-          <p className="w-full border-t font-medium text-5xl border-[#b7ab98] px-24   border-opacity-20 ">
-            Dial and Hands
-          </p>
-          <p className="w-full border-t border-[#b7ab98] px-24 font-bold  border-opacity-20">
-            CAse fittting
-          </p>
-          <p className="w-full border-t border-[#b7ab98] px-24 font-bold  border-opacity-20">
-            strach attachment
-          </p>
-          <p className="w-full border-t border-[#b7ab98] px-24 font-bold  border-opacity-20">
-            quality control
-          </p>
-          <p className="w-full border-y border-[#b7ab98] px-24 font-bold   border-opacity-20">
-            final polishing and packaging
-          </p>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>Design</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The process begins with designing the watch,</p>
+              <p>Including the dial , case and all internal</p>
+              <p>components. Computer-Aided Design (CAD)</p>
+              <p>software cab be used for precision</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>Component Production</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The production fo individual components often involves</p>
+              <p>both machines and manual process . Components can</p>
+              <p>
+                include gears , plates , springs , screws , the case , and the
+              </p>
+              <p>watch face.</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>Movement Assembly</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The movement, or the internal mechanism of the watch, </p>
+              <p>is assembled . This involves installing the mainspring,</p>
+              <p>gears and escapement , which regulate the movement's</p>
+              <p>energy</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>Dial and Hands</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The dial is often added next , followed by the hands.</p>
+              <p>Both must be attached with extreme precision</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>CAse fittting</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The completed movement is fitted into the case , a</p>
+              <p>process that often includes adding a seal for water</p>
+              <p>resistance.</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>strach attachment</p>
+            <p className="text-[#0D0D0D]  text-xl lowercase">
+              the strap of bracelete is then attached to the case
+            </p>
+          </div>
+
+          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>quality control</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The watch undergoes rigorous testing for accuracy,</p>
+              <p>water resistance , and overall quality.</p>
+            </div>
+          </div>
+          <div className="hover:bg-[#eb5939] transition duration-500 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+            <p>final polishing and packaging</p>
+            <div className="text-[#0D0D0D]  text-xl lowercase">
+              <p>The finished watch is polished and packaged , ready for </p>
+              <p>delivery</p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="w-full px-48  pt-32 pb-40 text-[#b7ab98] bg-[url('/images/work-1600.jpg')] bg-no-repeat bg-cover relative">
         <p className="uppercase">Experience</p>
         <div className="text-7xl font-bold my-3">
-          <p>
+          <p className="fade-on-scroll">
             Over <span className="text-[rgb(235,89,57)]">a decade</span> of
             <br />
-            watchmaking experience in a <br /> variety of watch styles , <br /> including
-            luxury, sport, and  <br /> vintage designs, while working <br /> with the majority
-            of the market's <br /> major players to create <br /> exquisite timepieces.
+            watchmaking experience in a <br /> variety of watch styles , <br />{" "}
+            including luxury, sport, and <br /> vintage designs, while working{" "}
+            <br /> with the majority of the market's <br /> major players to
+            create <br /> exquisite timepieces.
           </p>
         </div>
         <p className="absolute  uppercase bottom-10">History</p>
@@ -124,37 +179,42 @@ const Home = () => {
             <p className=" font-extralight">DR Com Group</p>
           </div>
         </div>
-        <div className="text-[#c9c1b5] px-48 py-40 flex flex-col gap-5">
-          <p className="uppercase font-medium">clients</p>
-          <div className="text-[#c9c1b5] text-7xl flex flex-col gap-2 font-bold">
-            <p>I worked with some of the most</p>
-            <p>
-              <span className="text-[rgb(235,89,57)]">innovative</span>industry
-              leaders to help
-            </p>
-            <p>build their top-notch products</p>
+        <div className="">
+          <div className="text-[#c9c1b5] px-48 py-40 flex flex-col gap-5">
+            <p className="uppercase font-medium">clients</p>
+            <div className="text-[#c9c1b5] text-6xl flex flex-col gap-2 font-bold">
+              <p>I worked with some of the most</p>
+              <p>
+                <span className="text-[rgb(235,89,57)]">innovative</span>
+                industry leaders to help
+              </p>
+              <p>build their top-notch products</p>
+            </div>
           </div>
-        </div>
-        <div className=" uppercase text-[#c9c1b5] px-48 ">
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl">ford</p>
+          <div className=" uppercase text-[#c9c1b5]  bg-[url('/images/planet-1-1.png')]  bg-no-repeat bg-contain  bg-bottom  mb-28">
+            <div className="   ">
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                ford
+              </p>
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                ufc
+              </p>
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                {" "}
+                lincoln
+              </p>
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                royal caribbean
+              </p>
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                sleeping
+              </p>
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+                nfl
+              </p>
+            </div>
+            <p className="text-9xl px-48">...</p>
           </div>
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl">ufc</p>
-          </div>
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl"> lincoln</p>
-          </div>
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl">royal caribbean</p>
-          </div>
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl">sleeping</p>
-          </div>
-          <div className=" border-y border-opacity-20 border-[#b7ab98]  ">
-            <p className="text-9xl">nfl</p>
-          </div>
-          <p className="text-9xl">...</p>
         </div>
         <div>
           <img
@@ -165,9 +225,11 @@ const Home = () => {
         </div>
       </div>
       <div className="mx-44 text-color">
-        <div className="flex flex-col">
+        <div className="flex flex-col py-28">
           <div className="border-b py-5 border-color border-opacity-20 mb-20">
-            <h1 className="text-2xl">WHAT THEY SAID</h1>
+            <h1 className="text-xl  uppercase text-[rgb(183,171,152)] tracking-widest       ">
+              WHAT THEY SAID
+            </h1>
           </div>
           <div className="sticky top-0 right-0">
             <div className="flex flex-row gap-3 items-center w-24">
@@ -243,7 +305,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[url('/images/banner-bottom-2400.jpg')] flex flex-col items-center justify-center py-56  bg-cover text-color">
+      <div className="bg-[url('/images/banner-bottom-50.jpg')] flex flex-col items-center justify-center py-56  bg-cover text-color">
         <p className="uppercase">my motto</p>
         <div className="flex flex-col justify-center items-center text-9xl font-bold">
           <p>GOOD DESIGN</p>
@@ -252,7 +314,7 @@ const Home = () => {
 
         <p>Dieter Rams</p>
       </div>
-      <div className="px-48 text-color flex flex-col gap-16 py-40">
+      <div className="px-48 text-color flex flex-col gap-16 pt-40 pb-10">
         <p>CONNECT</p>
         <div className="grid grid-cols-3">
           <div className="font-bold text-4xl">
@@ -265,7 +327,7 @@ const Home = () => {
             <p>Facebook</p>
             <p>Behance</p>
           </div>
-          <div  className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3">
             <div>
               <p className="font-medium">Email</p>
               <p className="font-extralight">(email protected)</p>
