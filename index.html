@@ -1,13 +1,41 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon/favicon-32x32.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grandeur</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon-32x32.png" />
+  <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/EaselPlugin.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/EasePack.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/PixiPlugin.min.js"></script>
+  <script src=" https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
+  <script src="https://unpkg.com/gsap/dist/Observer.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grandeur</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    console.log(document.getElementsByClassName("textIWant"))
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".textIWant p", {
+      backgroundPositionX: "0%",
+      stagger: 1,
+      scrollTrigger: {
+        trigger: ".text",
+        markers: true,
+        scrub: 1,
+        start: "top center",
+        end: "bottom center"
+      }
+    });
+  </script>
+</body>
+
 </html>

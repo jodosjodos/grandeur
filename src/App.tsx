@@ -8,7 +8,7 @@ function App() {
 	// not used 
 	setLoading
 	return (
-		<div className='w-screen h-screen bg-red-500'>
+		<div className='w-screen h-screen'>
 			{loading ? <Loading /> : (
 				<Router>
 					<Routes>

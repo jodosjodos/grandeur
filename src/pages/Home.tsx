@@ -1,4 +1,6 @@
 import { useState } from "react";
+import StyledText from "../components/StyledText";
+import AnimatedParagraphs from "../components/AnimatedParagraph";
 
 const Home = () => {
         const [isOn, setOn] = useState(true)
@@ -55,10 +57,12 @@ const Home = () => {
                                         </p>
                                 </div>
                         </div>
-                        <div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default">
+                        <div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default relative">
+                                <div className="absolute bottom-0 w-full bg-red-500 h-10">fasdf</div>
                                 <p className="uppercase px-48 text-xl">what i do</p>
                                 <div className="text-4xl my-3 uppercase">
-                                        <p className="w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-col  py-2 text-5xl">Design</p>
+                                        <StyledText styles="w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-col  py-2 text-5xl hover:bg-[rgb(235,89,57)] hover:text-black transition-all duration-1000">Design</StyledText>
+                                        <p className="w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-col  py-2 text-5xl hover:bg-[rgb(235,89,57)] hover:text-black transition-all duration-1000">Design</p>
                                         <p className="w-full border-b border-[#b7ab98] font-medium text-5xl py- px-28 py-2 border-opacity-20 ">
                                                 Component Production
                                         </p>
@@ -96,7 +100,7 @@ const Home = () => {
                                 <p className="absolute  uppercase bottom-10">History</p>
                         </div>
                         <div>
-                                <div className=" text-[#c9c1b5] flex flex-row gap-40 font-medium px-48 py-12 border-b border-[#b7ab98] border-opacity-20">
+                                <div className=" text-[#c9c1b5] flex flex-row gap-40 font-medium px-48 py-12 border-b border-[#b7ab98] border-opacity-20 ">
                                         <p className="text-5xl uppercase">now</p>
                                         <div className="flex flex-col gap-2">
                                                 <p className="text-5xl font-medium">Design Lead</p>
@@ -137,7 +141,7 @@ const Home = () => {
                                                 </div>
                                         </div>
                                         <div className=" uppercase text-[#c9c1b5]  bg-[url('/images/planet-1-1.png')]  bg-no-repeat bg-contain  bg-bottom  mb-28">
-                                                <div className="   ">
+                                                <div className="textIWant">
                                                         <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">ford</p>
                                                         <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">ufc</p>
                                                         <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48"> lincoln</p>
