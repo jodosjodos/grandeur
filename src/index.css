@@ -3,13 +3,13 @@
 @tailwind components;
 
 @font-face {
-        font-family: AvantGarde;
-        src: url("/fonts/4dd591d8-4168-4263-b05b-7183ddaff1f4.woff2");
+  font-family: AvantGarde;
+  src: url("/fonts/4dd591d8-4168-4263-b05b-7183ddaff1f4.woff2");
 }
 
 
 * {
-        font-family: AvantGarde;
+  font-family: AvantGarde;
 }
 
 /* :root {
@@ -32,41 +32,89 @@
 }        */
 
 
-.fade-on-scroll {
-        opacity: 50%;
-}
 
 
 /* styles.css */
 @keyframes pop-up {
-        0% {
-          opacity: 0;
-          transform: translateY(50px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .custom-animation p {
-        opacity: 0;
-        animation: pop-up 0.5s ease-out forwards;
-      }
-      
-      .custom-animation p:nth-child(1) {
-        animation-delay: 0.2s;
-      }
-      
-      .custom-animation p:nth-child(2) {
-        animation-delay: 0.4s;
-      }
-      
-      .custom-animation p:nth-child(3) {
-        animation-delay: 0.6s;
-      }
-      
-      .custom-color {
-        color: rgb(235, 89, 57);
-      }
-      
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-animation p {
+  opacity: 0;
+  animation: pop-up 0.5s ease-out forwards;
+}
+
+.custom-animation p:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.custom-animation p:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.custom-animation p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.custom-color {
+  color: rgb(235, 89, 57);
+}
+
+
+
+.circular-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.circular-bar {
+  --progress: 0;
+  width: 100px;
+  height: 100px;
+  border: 5px solid transparent;
+  border-top-color: blue;
+  border-radius: 50%;
+  animation: rotate 2s linear infinite, fill var(--progress) ease-in-out 2s forwards;
+}
+
+.percentage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg) scaleY(1);
+  }
+
+  100% {
+    transform: rotate(0deg) scaleY(0);
+  }
+}
+
+.mask {
+  mask-image: url("/images/masker.png");
+  background-color: #ec4e39;
+mask-repeat: no-repeat;
+mask-position: 50%;
+mask-size: 40px;
+color: black;
+
+}

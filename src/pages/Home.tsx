@@ -1,18 +1,59 @@
-import {  useState } from "react";
-import { gsap } from "gsap";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Home = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    const sections: HTMLElement[] = Array.from(
+      document.querySelectorAll(".custom-animation p")
+    );
+
+    sections.forEach((section) => {
+      const letters = section.innerText.split("");
+      section.innerHTML = letters
+        .map(
+          (letter, index) =>
+            `<span class="letter" key="${index}">${letter}</span>`
+        )
+        .join("");
+
+      gsap.fromTo(
+        section.querySelectorAll(".letter"),
+        {
+          opacity: 0.2,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0.3,
+          stagger: 0.1,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  }, []);
 
   const [isOn, setOn] = useState(true);
+
   const handleSound = () => {
     setOn((prev) => !prev);
   };
+
+
+
+// mouse things
+// const {x,y}=useMousePosition()
+
   return (
-    <div className="w-[100vw] overflow-x-hidden  bg-[rgb(13,13,13)] ">
+    <div className="w-[100vw] overflow-x-hidden  bg-[rgb(13,13,13)] relative">
       <img
         src="/icons/logo.svg"
         alt=""
@@ -52,7 +93,26 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="w-full px-48  py-32 text-[#b7ab98] ">
+        {/* <motion.div className="w-full text-center py-24 text-[#b7ab98]  absolute top-0 mask"
+        animate={{
+          WebkitMaskPosition:`${x}px ${y}px`
+        }}
+        >
+          
+          <div className="text-9xl custom-animation">
+            <p>
+              mask  <br />
+            </p>
+            <p >
+              this is <br /> mask
+            </p>
+            <p>
+              SINCE <br /> mask
+            </p>
+          </div>
+        </motion.div> */}
+    
+      <div className="w-full px-48  py-32 text-[#b7ab98]  custom-animation">
         <p className="uppercase">About me</p>
         <div className="text-6xl my-5 font-bold">
           <p>
@@ -66,7 +126,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default">
+      <div className="w-full   py-32 text-[#b7ab98]  hover:cursor-default custom-animation">
         <p className="uppercase px-48 text-xl">what i do</p>
         <div className="text-4xl my-3 uppercase">
           <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
@@ -89,12 +149,12 @@ const Home = () => {
               <p>watch face.</p>
             </div>
           </div>
-          <div className="hover:bg-[#eb5939] transition duration-300 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row  justify-between py-2 text-5xl  hover:text-[#0D0D0D]">
+          <div className="hover:bg-[#eb5939] transition duration-700 ease-in-out w-full border-y border-[#b7ab98] border-opacity-20 px-28 font-medium flex flex-row justify-between py-2 text-5xl hover:text-[#0D0D0D]">
             <p>Movement Assembly</p>
-            <div className="text-[#0D0D0D]  text-xl lowercase">
-              <p>The movement, or the internal mechanism of the watch, </p>
-              <p>is assembled . This involves installing the mainspring,</p>
-              <p>gears and escapement , which regulate the movement's</p>
+            <div className="text-[#0D0D0D] text-xl lowercase">
+              <p>The movement, or the internal mechanism of the watch,</p>
+              <p>is assembled. This involves installing the mainspring,</p>
+              <p>gears and escapement, which regulate the movement's</p>
               <p>energy</p>
             </div>
           </div>
@@ -136,7 +196,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-full px-48  pt-32 pb-40 text-[#b7ab98] bg-[url('/images/work-1600.jpg')] bg-no-repeat bg-cover relative">
+      <div className="w-full px-48  pt-32 pb-40 text-[#b7ab98] bg-[url('/images/work-1600.jpg')] bg-no-repeat bg-cover relative custom-animation">
         <p className="uppercase">Experience</p>
         <div className="text-7xl font-bold my-3">
           <p className="fade-on-scroll">
@@ -150,7 +210,7 @@ const Home = () => {
         </div>
         <p className="absolute  uppercase bottom-10">History</p>
       </div>
-      <div>
+      <div className="custom-animation">
         <div className=" text-[#c9c1b5] flex flex-row gap-40 font-medium px-48 py-12 border-b border-[#b7ab98] border-opacity-20">
           <p className="text-5xl uppercase">now</p>
           <div className="flex flex-col gap-2">
@@ -209,7 +269,7 @@ const Home = () => {
               <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
                 sleeping
               </p>
-              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48">
+              <p className="text-8xl border-y border-opacity-20 border-[#b7ab98] px-48 ">
                 nfl
               </p>
             </div>
@@ -224,7 +284,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="mx-44 text-color">
+      <div className="mx-44 text-color custom-animation">
         <div className="flex flex-col py-28">
           <div className="border-b py-5 border-color border-opacity-20 mb-20">
             <h1 className="text-xl  uppercase text-[rgb(183,171,152)] tracking-widest       ">
@@ -305,7 +365,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[url('/images/banner-bottom-50.jpg')] flex flex-col items-center justify-center py-56  bg-cover text-color">
+      <div className="bg-[url('/images/banner-bottom-50.jpg')] flex flex-col items-center justify-center py-56  bg-cover text-color custom-animation">
         <p className="uppercase">my motto</p>
         <div className="flex flex-col justify-center items-center text-9xl font-bold">
           <p>GOOD DESIGN</p>
