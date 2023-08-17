@@ -114,10 +114,64 @@
   mask-repeat: no-repeat;
   mask-position: 50%;
   mask-size: 40px;
-  color: black ;
+  color: black;
 }
-.maskgrandeur p{
-  color:black !important
+
+.maskexperience {
+  mask-image: url("/mask.svg");
+  background-color: #ec4e39;
+  mask-repeat: no-repeat;
+  mask-position: 50%;
+  mask-size: 40px;
+  color: black;
+}
+
+.maskexperience p {
+  color: black !important
+}
+
+.maskgrandeur p {
+  color: black !important
+}
+
+.mask p {
+  color: black !important;
+}
+
+.maskaboutme {
+  mask-image: url("/mask.svg");
+  background-color: #ec4e39;
+  mask-repeat: no-repeat;
+  mask-position: 50%;
+  mask-size: 40px;
+  color: black;
+}
+
+.maskaboutme p {
+  color: black !important;
+}
+
+
+.maskexperience,
+.paragraphexperience {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #afa18f;
+  cursor: default;
+}
+
+.maskaboutme,
+.paragraphaboutme {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #afa18f;
+  cursor: default;
 }
 
 .mask,
@@ -144,9 +198,7 @@
   cursor: default;
 }
 
-.mask p {
-  color: black !important;
-}
+
 
 .mask p,
 .paragraph p {

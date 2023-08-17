@@ -8,7 +8,7 @@ const Grandeur = () => {
         const size = isHovered ? 350 : 40;
         return (
                 <>
-                        <div className="my-20  relative">
+                        <div className=" relative">
                                 <motion.div
                                         className={clsx("maskgrandeur", "absolute w-[100vw] h-[100vh]  top-0 left-0  text-black")}
                                         animate={{
