@@ -1,20 +1,49 @@
-const Loading = () => {
-        return (
-                <div className='w-full h-full bg-[#0d0d0d] text-white flex items-center justify-center'>
-                        <div className="page-loading_inner js-page-loading_inner">
-                                <svg  width="270" height="270" viewBox="0 0 270 270" fill="none" xmlns="http://www.w3.org/2000/svg" className='w-52'>
-                                        <circle cx="136" cy="136" r="132" stroke="#B7AB98"></circle>
-                                </svg>
-                                <div className="absolute top-[46%] left-[47.5%]">
-                                        <img  src="/images/logo.gif" width="64px" height="64px" alt="logo" />
-                                </div>
-                                <button className='bg-[#0d0d0d] rounded-full hover:bg-[#b7ab98] hover:text-black transition-all duration-700  absolute  top-[61.5%] left-[44.5%] w-[155px] px-1.5  opacity-100 z-30  border border-[#b7ab98] text-[#b7ab98]  py-1 flex items-center justify-center '>
-                                        Start
-                                </button>
-                                <span  className="absolute top-[37%] left-[49.3%] text-[#b7ab98] text-[9px]"><b className="js-loading_text">100</b>%</span>
-                        </div>
-                </div>
-        )
+import React, { useState, useEffect } from "react";
+interface AppProps {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
+const CircularProgressBar: React.FC<AppProps> = ({ setLoading }) => {
+  const [progress, setProgress] = useState(0);
 
-export default Loading
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (progress < 100) {
+        setProgress(progress + 1);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [progress]);
+
+  const handleLoading = () => {
+    setLoading(false);
+  };
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen  relative">
+      <p className="text-md text-[#857d6f] font-bold mb-4">{progress}%</p>
+      <svg width="300" height="300" className="mb-6">
+        <circle
+          className="stroke-current text-[#857d6f]"
+          cx="150"
+          cy="150"
+          r="140"
+          strokeWidth="2"
+          strokeDasharray="879.64"
+          strokeDashoffset={(879.64 * (100 - progress)) / 100}
+          fill="transparent"
+        />
+      </svg>
+      {progress > 99 && (
+        <button
+          className="border border-[#857d6f] text-[#857d6f] px-16 font-bold uppercase hover:bg-[#857d6f] hover:text-black  py-2 rounded-xl shadow"
+          onClick={handleLoading}
+        >
+          Start
+        </button>
+      )}
+      <img src="/images/logo.gif" alt=" gif" className="absolute top-50 w-24" />
+    </div>
+  );
+};
+
+export default CircularProgressBar;
