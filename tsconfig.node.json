@@ -3,8 +3,23 @@
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "moduleResolution": "node",  // Use "node" for compatibility with Node.js modules
+    "target": "ES2020",  // Set your desired ECMAScript target version
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",  // Set JSX factory if using React
+    "baseUrl": ".",  // Set base URL for module resolution
+
+    // Specify your libraries if needed
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
+
+    // Use the paths option to create module aliasing
+    "paths": {
+      "@/*": ["src/*"]  // Example: Alias @/ to src/
+    }
   },
-  "include": ["vite.config.ts"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "vite.config.ts"]
 }
